@@ -1,1 +1,1 @@
-Workshops
+Git workshops
