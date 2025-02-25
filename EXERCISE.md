@@ -4,6 +4,10 @@
 
 -   **Step 1: Create a Branch with Your Name**
     -   Open your terminal (Terminal, Git Bash, or PowerShell) in the cloned `git-workshops` repository directory.
+    -   You have to specify git email and username, to do that:
+        -   `git config user.name “your-github-username”`
+        -   `git config user.email "your-github-account-email@gmail.com"`
+    -   Navigate to main branch `git checkout main`
     -   Using the command `git checkout -b [your-name]`, create a new branch. Replace `[your-name]` with your actual name.
         -   _Example:_ If your name is John, use the command: `git checkout -b john`
     -   **Explanation:** This command creates a new branch and immediately switches to it (`checkout`). This branch is your personal workspace.
@@ -16,9 +20,9 @@
         -   _Example:_ In the file `john.py` type: `print("John")`
     -   Save the file.
 -   **Step 3: Add and Commit Changes**
-    -   In the terminal, use the command `git add [your-name].py` to add the new file to the staging area.
-        -   _Example:_ `git add john.py`
-    -   Next, commit the changes with a description. Use the command `git commit -m "Added file [your-name].py"`, replacing `[your-name].py` with your file name.
+    -   In the terminal, use the command `git add .` to add the new file to the staging area.
+        -   _Example:_ `git add .`
+    -   Next, commit the changes with a description. Use the command `git commit -m "Add file [your-name].py"`, replacing `[your-name].py` with your file name.
         -   _Example:_ `git commit -m "Add file john.py"`
     -   **Explanation:** `git add` prepares the file for commit, and `git commit` saves the changes to the repository history. A good commit message is important to understand what was changed.
 -   **Step 4: Push the Branch to the Remote Repository (Push)**
@@ -31,7 +35,7 @@
     -   Click "Create pull request".
     -   **Explanation:** A Pull Request is a proposal to merge your changes into the main branch (`main`). It’s a way to start the code review and merging process.
 -   **Step 6: Merge Your Changes to the `main` Branch**
-    -   Click “Merge rull request”
+    -   Click “Merge pull request”
 -   **Step 7: Update Local `main` Branch and Download Changes (Pull)**
     -   Return to Visual Studio Code and the terminal.
     -   Switch to the `main` branch using the command: `git checkout main`
