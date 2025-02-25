@@ -1,1 +1,1 @@
-Git Workshops test
+Git Workshops
