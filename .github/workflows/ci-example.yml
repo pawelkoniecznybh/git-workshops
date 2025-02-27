@@ -10,6 +10,7 @@ on:
 jobs:
     install:
         runs-on: ubuntu-latest
+        timeout-minutes: 10
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
@@ -20,21 +21,27 @@ jobs:
     build:
         runs-on: ubuntu-latest
         needs: install
+        timeout-minutes: 10
         steps:
             - name: Build application
               run: echo "Building the application..."
 
+            - name: Log secret environment variable
+              run: echo "The value of MY_SECRET is ${{ secrets.MY_SECRET }}"
+
     test:
         runs-on: ubuntu-latest
         needs: build
+        timeout-minutes: 10
         steps:
             - name: Test application
               run: echo "Testing the application..."
 
     deploy:
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
         runs-on: ubuntu-latest
         needs: test
+        timeout-minutes: 10
         steps:
             - name: Deploy application
               run: echo "Deploying the application..."
