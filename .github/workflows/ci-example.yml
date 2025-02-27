@@ -17,24 +17,24 @@ jobs:
             - name: Install dependencies
               run: echo "Installing dependencies..."
 
-    test:
-        runs-on: ubuntu-latest
-        needs: install
-        steps:
-            - name: Test application
-              run: echo "Testing the application..."
-
     build:
         runs-on: ubuntu-latest
-        needs: test
+        needs: install
         steps:
             - name: Build application
               run: echo "Building the application..."
 
+    test:
+        runs-on: ubuntu-latest
+        needs: build
+        steps:
+            - name: Test application
+              run: echo "Testing the application..."
+
     deploy:
         if: github.ref == 'refs/heads/main'
         runs-on: ubuntu-latest
-        needs: build
+        needs: test
         steps:
             - name: Deploy application
               run: echo "Deploying the application..."
